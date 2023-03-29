@@ -30,7 +30,7 @@ body {
 }
 
 .card-img-item {
-    width: 6rem;
+    width: fit-content;
     height: fit-content;
     padding: 5px;
 }

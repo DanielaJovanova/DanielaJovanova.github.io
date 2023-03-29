@@ -10,6 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+  </script>
 </head>
 
 <body class="disable-select">
@@ -35,11 +37,12 @@
           { name: "Shirt", pictureName: "Shirt.png", top: "310px", left: "324px", scale: "170%" }
         ],
         accessories: [
-          { name: "Trenerka", pictureName: "Trenerka.png" }
+          { name: "lancheche", pictureName: "lancheche.png", top: "290px", left: "341px", scale: "170%" },
+          { name: "bag", pictureName: "bag.png", top: "320px", left: "311px", scale: "170%" },
+          { name: "Ear", pictureName: "Ear.png", top: "258px", left: "328px", scale: "160%" }
         ],
         hairs: [
           { name: "Back", pictureName: "Back.png", isFront: true, top: "218px", left: "323px", scale: "162%" },
-          { name: "Back1", pictureName: "Back1.png", isFront: false, top: "234px", left: "318px", scale: "174%" },
           { name: "Front2", pictureName: "Front2.png", isFront: true, top: "206px", left: "318px", scale: "190%" },
           { name: "front1", pictureName: "front1.png", isFront: true, top: "206px", left: "326px", scale: "174%" }
         ],
@@ -52,7 +55,7 @@
         pants: "",
         shoes: "",
         top: "",
-        accessorie: [""],
+        accessorie: "",
         hair: "",
         skirt: ""
       }
@@ -86,13 +89,25 @@
     </div>
   </nav>
 
+  <div id="exampleToast"
+    style="position: absolute;top:50px;right: 100px;background-color: rgb(250, 164, 194)!important;"
+    class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" style="color: rgb(80, 6, 52)!important;">
+        Successfuly saved
+      </div>
+      <button style="color: rgb(80, 6, 52)!important;" type="button" class="btn-close btn-close-white me-2 m-auto"
+        data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
   <div class="container text-center" style="padding-top: 30px;">
     <div class="row">
       <div class="col-1">
       </div>
 
 
-      <div class="col-3" style="height: 550px;">
+      <div id="model" class="col-3" style="height: 550px;">
 
         <div style="background: rgb(221, 88, 135) 65%;filter: blur(6px);height: 550px;width: 100%;"></div>
         <img id="backHair" class="clothes"></img>
@@ -102,8 +117,12 @@
         <img id="pants" class="clothes" src=""></img>
         <img id="top" class="clothes" src=""></img>
         <img id="skirt" class="clothes" src=""></img>
-        <img id="accessorie" class="clothes" src=""></img>
         <img id="dress" class="clothes" src=""></img>
+        <img id="accessorie" class="clothes" src=""></img>
+        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Wear</button>
+        <button onclick="takeshot()" class="btn btn-primary"
+          style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Save</button>
+        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Clear</button>
 
       </div>
 
@@ -154,6 +173,11 @@
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
     crossorigin="anonymous"></script>
   <script>
+
+    var tosterce = document.getElementById("exampleToast")
+    var notif = bootstrap.Toast.getOrCreateInstance(tosterce);
+
+
     var lastTab = document.getElementById("topsButton");
     function tabSwitch(tab) {
       lastTab.setAttribute("class", "nav-link");
@@ -168,6 +192,10 @@
         // pcikerImg.setAttribute("class", "card card-img-item");
         pcikerImg.setAttribute("title", element.name);
         pcikerImg.setAttribute("width", "100%");
+        if (tab.innerHTML.toLowerCase() == "accessories") {
+          pcikerImg.style.objectFit = "contain"
+          pcikerImg.style.maxHeight = "150px";
+        }
 
         var pickerDiv = document.createElement("div");
         pickerDiv.setAttribute("class", "card card-img-item");
@@ -189,6 +217,12 @@
       switch (typeOfClothe) {
         case "Tops":
           var x = document.getElementById("top");
+
+          if (name === config.currentOutfit.top) {
+            x.src = ""
+            break;
+          }
+
           var y;
           config.clothes.tops.forEach(element => {
             if (element.pictureName === name) {
@@ -199,9 +233,16 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.top = y.pictureName;
           break;
+
+
         case "Pants":
           var x = document.getElementById("pants");
+          if (name === config.currentOutfit.pants) {
+            x.src = "";
+            break;
+          }
           var y;
           config.clothes.pants.forEach(element => {
             if (element.pictureName === name) {
@@ -212,9 +253,16 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.pants = y.pictureName;
           break;
+
+
         case "Skirts":
           var x = document.getElementById("skirt");
+          if (name === config.currentOutfit.skirt) {
+            x.src = "";
+            break;
+          }
           var y;
           config.clothes.skirts.forEach(element => {
             if (element.pictureName === name) {
@@ -225,9 +273,17 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.skirt = y.pictureName;
           break;
+
+
+
         case "Accessories":
           var x = document.getElementById("accessorie");
+          if (name === config.currentOutfit.accessorie) {
+            x.src = "";
+            break;
+          }
           var y;
           config.clothes.accessories.forEach(element => {
             if (element.pictureName === name) {
@@ -238,9 +294,14 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.accessorie = y.pictureName;
           break;
         case "Dresses":
           var x = document.getElementById("dress");
+          if (name === config.currentOutfit.dress) {
+            x.src = "";
+            break;
+          }
           var y;
           config.clothes.dresses.forEach(element => {
             if (element.pictureName === name) {
@@ -251,11 +312,16 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.dress = y.pictureName;
           break;
         case "Hairs":
           var back = document.getElementById("backHair");
           var front = document.getElementById("frontHair");
-
+          if (name === config.currentOutfit.hair) {
+            back.src = "";
+            front.src = "";
+            break;
+          }
           var y;
           config.clothes.hairs.forEach(element => {
             if (element.pictureName === name) {
@@ -278,9 +344,15 @@
             front.src = "";
           }
 
+          config.currentOutfit.hair = y.pictureName;
+
           break;
         case "Shoes":
           var x = document.getElementById("shoes");
+          if (name === config.currentOutfit.shoes) {
+            x.src = "";
+            break;
+          }
           var y;
           config.clothes.shoes.forEach(element => {
             if (element.pictureName === name) {
@@ -291,13 +363,36 @@
           x.style.left = y.left;
           x.style.scale = y.scale;
           x.src = "images/" + y.pictureName;
+          config.currentOutfit.shoes = y.pictureName;
           break;
       }
 
     }
 
-    
+    function takeshot() {
+      let model = document.getElementById('model');
 
+      // Use the html2canvas
+      // function to take a screenshot
+      html2canvas(model).then(
+        function (canvas) {
+         // document
+         //   .getElementById('output')
+         //   .appendChild(canvas);
+          var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+          downloadImage(image, 'outfit.png');
+
+        })
+    }
+
+    function downloadImage(data, filename = 'outfit.png') {
+      var a = document.createElement('a');
+      a.href = data;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+    }
   </script>
 </body>
 
