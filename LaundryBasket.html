@@ -1,57 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-      
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-          <link href="styleLaoundryBasket.css" rel="stylesheet">
-     
-      </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="styleLaoundryBasket.css" rel="stylesheet">
+
+</head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg" style="background: rgb(160,5,175);
     background: linear-gradient(180deg, rgb(221, 88, 135) 65%, rgba(0,212,255,0) 100%); font-size: 180%;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="font-size: 190%; padding-right: 40px; color: rgb(80, 6, 52)">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="closet.html"
-              style="padding-right: 30px; color: rgb(80, 6, 52);">Closet</a>
-          </li>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+                style="font-size: 190%; padding-right: 40px; color: rgb(80, 6, 52)">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="closet.html"
+                            style="padding-right: 30px; color: rgb(80, 6, 52);">Closet</a>
+                    </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="Blog.html" style=" color: rgb(80, 6, 52); padding-right: 30px;">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LaundryBasket.html" style=" color: rgb(80, 6, 52)">Laundry basket</a>
-          </li>
-        </ul>
-      </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Blog.html"
+                            style=" color: rgb(80, 6, 52); padding-right: 30px;">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="LaundryBasket.html" style=" color: rgb(80, 6, 52)">Laundry basket</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="basket" style="margin-inline: 20%;">
+
+
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card " style="width: 200px;height: min-content; text-align: center;">
+                    <img src="images/Back1.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                        <button class="btn btn-primary">Wash | worn 10 times</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card " style="width: 200px;height: min-content; text-align: center;">
+                    <img src="images/dress3.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                        <button class="btn btn-primary">Wash | worn 10 times</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card " style="width: 200px;height: min-content; text-align: center;">
+                    <img src="images/bag.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                        <button class="btn btn-primary">Wash | worn 10 times</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card " style="width: 200px;height: min-content; text-align: center;">
+                    <img src="images/Ear.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                        <button class="btn btn-primary">Wash | worn 10 times</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </nav>
-<div style="margin-inline: 20%;">
-  <div class="card" style="width:min-content;height: min-content;text-align: center;">
-    <img src="images/dress1.png" class="card-img-top card-img-item" style="text-align: center;width: 100%;" alt="...">
-    <div class="card-body">
-      <button class="btn btn-primary">Wash<span class="badge text-bg-secondary">Worn 4 times1</span></button>
-    </div>
-  </div>
-    
-</div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-    crossorigin="anonymous"></script>
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function appendCard() {
+            var basket = document.getElementById("basket");
+            basket.innerHTML += ' <div class="card" style="width:min-content;height: min-content;text-align: center;"> <img src="images/dress1.png" class="card-img-top card-img-item" style="text-align: center;width: 100%;" alt="..."><div class="card-body"><button class="btn btn-primary">Wash<span class="badge text-bg-secondary">Worn 4 times1</span></button></div></div>'
+        }
+    </script>
 </body>
+
 </html>

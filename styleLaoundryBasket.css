@@ -2,38 +2,9 @@ body {
     background-image: url('/images/steven universe aesthetics.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    overflow: hidden;
 }
 
-.card {
-    margin: 10px;
 
-}
-
-.card:hover {
-    background-color: antiquewhite;
-    scale: 110%;
-    cursor: pointer;
-}
-
-.nav-link {
-    cursor: pointer;
-}
-
-.model::after {
-    filter: blur(6px);
-}
-
-.clothes {
-    position: absolute;
-    scale: 170%;
-}
-
-.card-img-item {
-    width: fit-content;
-    height: fit-content;
-    padding: 5px;
-}
 
 .disable-select {
     -webkit-user-select: none;
