@@ -119,7 +119,7 @@
         <img id="skirt" class="clothes" src=""></img>
         <img id="dress" class="clothes" src=""></img>
         <img id="accessorie" class="clothes" src=""></img>
-        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Wear</button>
+        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;" onclick="wear()">Wear</button>
         <button onclick="takeshot()" class="btn btn-primary"
           style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Save</button>
         <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Clear</button>
@@ -392,6 +392,16 @@
       a.download = filename;
       document.body.appendChild(a);
       a.click();
+    }
+
+    function wear(){
+      var keys = Object.keys(config.currentOutfit)
+      keys.forEach(element => {
+        if(config.currentOutfit[element]!==""){
+          addClotheToBasket(config.currentOutfit[element])
+        }
+        
+      });
     }
 
     function addClotheToBasket(clothe) {

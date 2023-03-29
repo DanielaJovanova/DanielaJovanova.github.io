@@ -42,45 +42,14 @@
             </div>
         </div>
     </nav>
-    <div id="basket" style="margin-inline: 20%;">
+    <div style="margin-inline: 20%;">
 
 
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card " style="width: 200px;height: min-content; text-align: center;">
-                    <img src="images/Back1.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
-                    <div class="card-body" style="text-align: center;">
-                        <button class="btn btn-primary">Wash | worn 10 times</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card " style="width: 200px;height: min-content; text-align: center;">
-                    <img src="images/dress3.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
-                    <div class="card-body" style="text-align: center;">
-                        <button class="btn btn-primary">Wash | worn 10 times</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card " style="width: 200px;height: min-content; text-align: center;">
-                    <img src="images/bag.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
-                    <div class="card-body" style="text-align: center;">
-                        <button class="btn btn-primary">Wash | worn 10 times</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card " style="width: 200px;height: min-content; text-align: center;">
-                    <img src="images/Ear.png" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="...">
-                    <div class="card-body" style="text-align: center;">
-                        <button class="btn btn-primary">Wash | worn 10 times</button>
-                    </div>
-                </div>
-            </div>
+        <div id="basket" class="row row-cols-1 row-cols-md-3 g-4">
+           
+
         </div>
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -90,10 +59,32 @@
         crossorigin="anonymous"></script>
 
     <script>
-        function appendCard() {
+        function appendCard(pictureName, timesWorn) {
             var basket = document.getElementById("basket");
-            basket.innerHTML += ' <div class="card" style="width:min-content;height: min-content;text-align: center;"> <img src="images/dress1.png" class="card-img-top card-img-item" style="text-align: center;width: 100%;" alt="..."><div class="card-body"><button class="btn btn-primary">Wash<span class="badge text-bg-secondary">Worn 4 times1</span></button></div></div>'
+            if(timesWorn>1){
+                timesWorn='Worn '+timesWorn+' times'
+            }else{
+                timesWorn='Worn '+timesWorn+' time'
+            }
+            var remove = "removeClothe('"+pictureName+"')";
+            basket.innerHTML += '<div class="col"><div class="card " style="width: 200px;height: min-content; text-align: center;"><img src="images/'+pictureName+'" class="card-img-top" style="object-fit: contain;max-height: 300px;" alt="..."><div class="card-body" style="text-align: center;"><button onclick="'+remove+'" class="btn btn-primary">Wash <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">'+timesWorn+'<span class="visually-hidden">unread messages</span></span></button></div></div></div>'
+
         }
+
+        function loadClothes(){
+           var keys = Object.keys(localStorage);
+           keys.forEach(key => {
+            appendCard(key,localStorage[key])
+           });
+        }
+        loadClothes();
+        function removeClothe(element){
+            localStorage.removeItem(element)
+            window.location.reload(); 
+        }
+
+
+        
     </script>
 </body>
 
