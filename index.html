@@ -220,6 +220,7 @@
 
           if (name === config.currentOutfit.top) {
             x.src = ""
+            config.currentOutfit.top="";
             break;
           }
 
@@ -241,6 +242,7 @@
           var x = document.getElementById("pants");
           if (name === config.currentOutfit.pants) {
             x.src = "";
+            config.currentOutfit.pants="";
             break;
           }
           var y;
@@ -261,6 +263,7 @@
           var x = document.getElementById("skirt");
           if (name === config.currentOutfit.skirt) {
             x.src = "";
+            config.currentOutfit.skirt="";
             break;
           }
           var y;
@@ -282,6 +285,7 @@
           var x = document.getElementById("accessorie");
           if (name === config.currentOutfit.accessorie) {
             x.src = "";
+            config.currentOutfit.accessorie="";
             break;
           }
           var y;
@@ -300,6 +304,7 @@
           var x = document.getElementById("dress");
           if (name === config.currentOutfit.dress) {
             x.src = "";
+            config.currentOutfit.dress="";
             break;
           }
           var y;
@@ -320,6 +325,7 @@
           if (name === config.currentOutfit.hair) {
             back.src = "";
             front.src = "";
+            config.currentOutfit.hair="";
             break;
           }
           var y;
@@ -351,6 +357,7 @@
           var x = document.getElementById("shoes");
           if (name === config.currentOutfit.shoes) {
             x.src = "";
+            config.currentOutfit.shoes="";
             break;
           }
           var y;
@@ -413,6 +420,16 @@
         localStorage.setItem(clothe, localStorage.getItem(clothe) -0 + 1)
       }
     }
+
+   function  clear(){
+    setClothe("tops",config.currentOutfit.top);
+    setClothe("Pants",config.currentOutfit.top);
+    setClothe("Skirts",config.currentOutfit.top);
+    setClothe("Accessories",config.currentOutfit.top);
+    setClothe("Dresses",config.currentOutfit.top);
+    setClothe("Hairs",config.currentOutfit.top);
+    setClothe("Shoes",config.currentOutfit.top);
+   }
 
   </script>
 </body>
