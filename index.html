@@ -41,7 +41,7 @@
           { name: "Back", pictureName: "Back.png", isFront: true, top: "218px", left: "323px", scale: "162%" },
           { name: "Back1", pictureName: "Back1.png", isFront: false, top: "234px", left: "318px", scale: "174%" },
           { name: "Front2", pictureName: "Front2.png", isFront: true, top: "206px", left: "318px", scale: "190%" },
-          { name: "front1", pictureName: "front1.png", isFront: false, top: "206px", left: "326px", scale: "174%" }
+          { name: "front1", pictureName: "front1.png", isFront: true, top: "206px", left: "326px", scale: "174%" }
         ],
         skirts: [
           { name: "Skirt", pictureName: "Skirt.png", top: "398px", left: "300px", scale: "170%" }
@@ -165,14 +165,14 @@
       config.clothes[tab.innerHTML.toLowerCase()].forEach(element => {
         var pcikerImg = document.createElement("img");
         pcikerImg.src = "images/" + element.pictureName;
-       // pcikerImg.setAttribute("class", "card card-img-item");
+        // pcikerImg.setAttribute("class", "card card-img-item");
         pcikerImg.setAttribute("title", element.name);
         pcikerImg.setAttribute("width", "100%");
 
         var pickerDiv = document.createElement("div");
         pickerDiv.setAttribute("class", "card card-img-item");
         pickerDiv.setAttribute("width", "100px");
-        pickerDiv.setAttribute("onclick",'setClothe("'+tab.innerHTML+'","'+ element.pictureName+'")') ;
+        pickerDiv.setAttribute("onclick", 'setClothe("' + tab.innerHTML + '","' + element.pictureName + '")');
         pickerDiv.appendChild(pcikerImg);
 
 
@@ -268,14 +268,14 @@
             front.style.scale = y.scale;
             front.src = "images/" + y.pictureName;
 
-            back.src="";
+            back.src = "";
           } else {
             back.style.top = y.top;
             back.style.left = y.left;
             back.style.scale = y.scale;
             back.src = "images/" + y.pictureName;
 
-            front.src="";
+            front.src = "";
           }
 
           break;
@@ -296,7 +296,7 @@
 
     }
 
-
+    
 
   </script>
 </body>
