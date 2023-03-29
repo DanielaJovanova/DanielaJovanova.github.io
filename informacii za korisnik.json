@@ -1,0 +1,11 @@
+{
+    "Informacii za korisnik":{
+        "Descriptions":[
+            {"Picture Name":"slika1.png","desc":"najubavata slika na ovaa planeta"},
+            {"Picture Name":"suknja3.png","desc":"najubavata suknja na ovaa planeta"}
+        ],
+        "Outfits":[
+            {"Hair":"hair1","Accessories":"dawd"}
+        ]
+    }
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="disable-select">
+  <script>
+    var config = {
+      clothes: {
+        dresses: [
+          { name: "dress1", pictureName: "dress1.png", top: "317px", left: "326px", scale: "158%" },
+          { name: "dress2", pictureName: "dress2.png", top: "305px", left: "311px", scale: "154%" },
+          { name: "dress3", pictureName: "dress3.png", top: "352px", left: "285px", scale: "173%" }
+        ],
+        pants: [
+          { name: "Jean", pictureName: "Jean.png", top: "427px", left: "322px", scale: "170%" }
+        ],
+        shoes: [
+          { name: "shoe", pictureName: "shoe.png", top: "572px", left: "325px", scale: "163%" },
+          { name: "shoe3", pictureName: "shoe3.png", top: "570px", left: "328px", scale: "163%" },
+          { name: "shoe4", pictureName: "shoe4.png", top: "575px", left: "327px", scale: "157%" },
+          { name: "Warm", pictureName: "Warm.png", top: "517px", left: "311px", scale: "152%" },
+        ],
+        tops: [
+          { name: "Trenerka", pictureName: "Trenerka.png", top: "320px", left: "311px", scale: "170%" },
+          { name: "Shirt", pictureName: "Shirt.png", top: "310px", left: "324px", scale: "170%" }
+        ],
+        accessories: [
+          { name: "Trenerka", pictureName: "Trenerka.png" }
+        ],
+        hairs: [
+          { name: "Back", pictureName: "Back.png", isFront: true, top: "218px", left: "323px", scale: "162%" },
+          { name: "Back1", pictureName: "Back1.png", isFront: false, top: "234px", left: "318px", scale: "174%" },
+          { name: "Front2", pictureName: "Front2.png", isFront: true, top: "206px", left: "318px", scale: "190%" },
+          { name: "front1", pictureName: "front1.png", isFront: false, top: "206px", left: "326px", scale: "174%" }
+        ],
+        skirts: [
+          { name: "Skirt", pictureName: "Skirt.png", top: "398px", left: "300px", scale: "170%" }
+        ]
+      },
+      currentOutfit: {
+        dress: "",
+        pants: "",
+        shoes: "",
+        top: "",
+        accessorie: [""],
+        hair: "",
+        skirt: ""
+      }
+    }
+
+  </script>
+
+  <nav class="navbar navbar-expand-lg" style="background: rgb(160,5,175);
+    background: linear-gradient(180deg, rgb(221, 88, 135) 65%, rgba(0,212,255,0) 100%); font-size: 180%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="font-size: 190%; padding-right: 40px; color: rgb(80, 6, 52)">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="closet.html"
+              style="padding-right: 30px; color: rgb(80, 6, 52);">Closet</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="Blog.html" style=" color: rgb(80, 6, 52); padding-right: 30px;">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="LaundryBasket.html" style=" color: rgb(80, 6, 52)">Laundry basket</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center" style="padding-top: 30px;">
+    <div class="row">
+      <div class="col-1">
+      </div>
+
+
+      <div class="col-3" style="height: 550px;">
+
+        <div style="background: rgb(221, 88, 135) 65%;filter: blur(6px);height: 550px;width: 100%;"></div>
+        <img id="backHair" class="clothes"></img>
+        <img src="images/body-removebg-preview.png" style="position: absolute;top:210px;left: 280px;scale: 130%;">
+        <img id="frontHair" class="clothes" src=""></img>
+        <img id="shoes" class="clothes" src=""></img>
+        <img id="pants" class="clothes" src=""></img>
+        <img id="top" class="clothes" src=""></img>
+        <img id="skirt" class="clothes" src=""></img>
+        <img id="accessorie" class="clothes" src=""></img>
+        <img id="dress" class="clothes" src=""></img>
+
+      </div>
+
+
+      <div class="col-1">
+      </div>
+
+
+      <!-- closet -->
+      <div class="col" style="background-color: white; height: 550px;">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a id="topsButton" class="nav-link" onclick="tabSwitch(this)">Tops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Pants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Skirts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Dresses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Hairs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="tabSwitch(this)">Shoes</a>
+          </li>
+        </ul>
+        <!--clothes pciker, populated with js-->
+        <div id="clothesPicker" style="height: 500px; display: flex;flex-wrap: wrap;">
+
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  <script>
+    var lastTab = document.getElementById("topsButton");
+    function tabSwitch(tab) {
+      lastTab.setAttribute("class", "nav-link");
+      tab.setAttribute("class", "nav-link active");
+      var clothesPicker = document.getElementById("clothesPicker");
+      clothesPicker.innerHTML = "";
+
+
+      config.clothes[tab.innerHTML.toLowerCase()].forEach(element => {
+        var pcikerImg = document.createElement("img");
+        pcikerImg.src = "images/" + element.pictureName;
+       // pcikerImg.setAttribute("class", "card card-img-item");
+        pcikerImg.setAttribute("title", element.name);
+        pcikerImg.setAttribute("width", "100%");
+
+        var pickerDiv = document.createElement("div");
+        pickerDiv.setAttribute("class", "card card-img-item");
+        pickerDiv.setAttribute("width", "100px");
+        pickerDiv.setAttribute("onclick",'setClothe("'+tab.innerHTML+'","'+ element.pictureName+'")') ;
+        pickerDiv.appendChild(pcikerImg);
+
+
+
+
+        clothesPicker.appendChild(pickerDiv);
+
+      });
+      lastTab = tab;
+    }
+    tabSwitch(lastTab);
+
+    function setClothe(typeOfClothe = "", name = "") {
+      switch (typeOfClothe) {
+        case "Tops":
+          var x = document.getElementById("top");
+          var y;
+          config.clothes.tops.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+        case "Pants":
+          var x = document.getElementById("pants");
+          var y;
+          config.clothes.pants.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+        case "Skirts":
+          var x = document.getElementById("skirt");
+          var y;
+          config.clothes.skirts.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+        case "Accessories":
+          var x = document.getElementById("accessorie");
+          var y;
+          config.clothes.accessories.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+        case "Dresses":
+          var x = document.getElementById("dress");
+          var y;
+          config.clothes.dresses.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+        case "Hairs":
+          var back = document.getElementById("backHair");
+          var front = document.getElementById("frontHair");
+
+          var y;
+          config.clothes.hairs.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          if (y.isFront) {
+            front.style.top = y.top;
+            front.style.left = y.left;
+            front.style.scale = y.scale;
+            front.src = "images/" + y.pictureName;
+
+            back.src="";
+          } else {
+            back.style.top = y.top;
+            back.style.left = y.left;
+            back.style.scale = y.scale;
+            back.src = "images/" + y.pictureName;
+
+            front.src="";
+          }
+
+          break;
+        case "Shoes":
+          var x = document.getElementById("shoes");
+          var y;
+          config.clothes.shoes.forEach(element => {
+            if (element.pictureName === name) {
+              y = element;
+            }
+          });
+          x.style.top = y.top;
+          x.style.left = y.left;
+          x.style.scale = y.scale;
+          x.src = "images/" + y.pictureName;
+          break;
+      }
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>
