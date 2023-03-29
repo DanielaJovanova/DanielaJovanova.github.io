@@ -94,7 +94,7 @@
     class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body" style="color: rgb(80, 6, 52)!important;">
-        Successfuly saved
+        Outfit added to basket
       </div>
       <button style="color: rgb(80, 6, 52)!important;" type="button" class="btn-close btn-close-white me-2 m-auto"
         data-bs-dismiss="toast" aria-label="Close"></button>
@@ -376,9 +376,9 @@
       // function to take a screenshot
       html2canvas(model).then(
         function (canvas) {
-         // document
-         //   .getElementById('output')
-         //   .appendChild(canvas);
+          // document
+          //   .getElementById('output')
+          //   .appendChild(canvas);
           var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
           downloadImage(image, 'outfit.png');
@@ -393,6 +393,17 @@
       document.body.appendChild(a);
       a.click();
     }
+
+    function addClotheToBasket(clothe) {
+      var storedClothe = localStorage.getItem(clothe);
+
+      if (storedClothe == null) {
+        localStorage.setItem(clothe, 1);
+      } else {
+        localStorage.setItem(clothe, localStorage.getItem(clothe) -0 + 1)
+      }
+    }
+
   </script>
 </body>
 
