@@ -16,4 +16,12 @@ body {
 .container{
     width: 100%!important;
 }
-
+footer {
+    background-color: rgb(221, 88, 135);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
