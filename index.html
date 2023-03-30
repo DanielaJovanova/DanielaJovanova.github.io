@@ -9,7 +9,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link href="style.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
   </script>
@@ -67,7 +67,9 @@
   <nav class="navbar navbar-expand-lg" style="background: rgb(160,5,175);
     background: linear-gradient(180deg, rgb(221, 88, 135) 65%, rgba(0,212,255,0) 100%); font-size: 180%;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="font-size: 190%; padding-right: 40px; color: rgb(122, 9, 79); font-family: fantasy, cursive;">Fashion Friends</a>
+      <a class="navbar-brand" href="#"
+        style="font-size: 190%; padding-right: 40px; color: rgb(122, 9, 79); font-family: fantasy, cursive;">Fashion
+        Friends</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -120,8 +122,10 @@
         <img id="skirt" class="clothes" src=""></img>
         <img id="dress" class="clothes" src=""></img>
         <img id="accessorie" class="clothes" src=""></img>
-        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;" onclick="wear()">Wear</button>
-        <button onclick="takeshot()" class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Save</button>
+        <button class="btn btn-primary" style="margin-top: 10px;background: rgb(221, 88, 135) 65%;"
+          onclick="wear()">Wear</button>
+        <button onclick="takeshot()" class="btn btn-primary"
+          style="margin-top: 10px;background: rgb(221, 88, 135) 65%;">Save</button>
 
       </div>
 
@@ -134,7 +138,7 @@
       <div class="col" style="background-color:  rgb(221, 88, 135); height: 550px; color:  rgb(122, 9, 79)!important;">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a id="topsButton" class="nav-link" onclick="tabSwitch(this)" >Tops</a>
+            <a id="topsButton" class="nav-link" onclick="tabSwitch(this)">Tops</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="tabSwitch(this)">Pants</a>
@@ -171,13 +175,16 @@
           <span class="mb-3 mb-md-0 text-body-secondary">Contact us:<br> fashionfriends@gmail.com<br> Phone
             number: 07x xxx xxx</span>
 
-          
+
         </div>
-    
+
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;" class="bi bi-instagram"></i></a></li>
-          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;" class="bi bi-pinterest"></i></a></li>
-          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;" class="bi bi-facebook"></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;"
+                class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;"
+                class="bi bi-pinterest"></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i style="font-size: xx-large;"
+                class="bi bi-facebook"></i></a></li>
         </ul>
       </footer>
     </div>
@@ -191,17 +198,15 @@
     crossorigin="anonymous"></script>
   <script>
 
-    var tosterce = document.getElementById("exampleToast")
-    var notif = bootstrap.Toast.getOrCreateInstance(tosterce);
-
 
     var lastTab = document.getElementById("topsButton");
+
+
     function tabSwitch(tab) {
       lastTab.setAttribute("class", "nav-link");
       tab.setAttribute("class", "nav-link active");
       var clothesPicker = document.getElementById("clothesPicker");
       clothesPicker.innerHTML = "";
-
 
       config.clothes[tab.innerHTML.toLowerCase()].forEach(element => {
         var pcikerImg = document.createElement("img");
@@ -237,7 +242,7 @@
 
           if (name === config.currentOutfit.top) {
             x.src = ""
-            config.currentOutfit.top="";
+            config.currentOutfit.top = "";
             break;
           }
 
@@ -259,7 +264,7 @@
           var x = document.getElementById("pants");
           if (name === config.currentOutfit.pants) {
             x.src = "";
-            config.currentOutfit.pants="";
+            config.currentOutfit.pants = "";
             break;
           }
           var y;
@@ -274,13 +279,11 @@
           x.src = "images/" + y.pictureName;
           config.currentOutfit.pants = y.pictureName;
           break;
-
-
         case "Skirts":
           var x = document.getElementById("skirt");
           if (name === config.currentOutfit.skirt) {
             x.src = "";
-            config.currentOutfit.skirt="";
+            config.currentOutfit.skirt = "";
             break;
           }
           var y;
@@ -295,14 +298,11 @@
           x.src = "images/" + y.pictureName;
           config.currentOutfit.skirt = y.pictureName;
           break;
-
-
-
         case "Accessories":
           var x = document.getElementById("accessorie");
           if (name === config.currentOutfit.accessorie) {
             x.src = "";
-            config.currentOutfit.accessorie="";
+            config.currentOutfit.accessorie = "";
             break;
           }
           var y;
@@ -321,7 +321,7 @@
           var x = document.getElementById("dress");
           if (name === config.currentOutfit.dress) {
             x.src = "";
-            config.currentOutfit.dress="";
+            config.currentOutfit.dress = "";
             break;
           }
           var y;
@@ -342,7 +342,7 @@
           if (name === config.currentOutfit.hair) {
             back.src = "";
             front.src = "";
-            config.currentOutfit.hair="";
+            config.currentOutfit.hair = "";
             break;
           }
           var y;
@@ -374,7 +374,7 @@
           var x = document.getElementById("shoes");
           if (name === config.currentOutfit.shoes) {
             x.src = "";
-            config.currentOutfit.shoes="";
+            config.currentOutfit.shoes = "";
             break;
           }
           var y;
@@ -418,13 +418,13 @@
       a.click();
     }
 
-    function wear(){
+    function wear() {
       var keys = Object.keys(config.currentOutfit)
       keys.forEach(element => {
-        if(config.currentOutfit[element]!==""){
+        if (config.currentOutfit[element] !== "") {
           addClotheToBasket(config.currentOutfit[element])
         }
-        
+
       });
     }
 
@@ -434,7 +434,7 @@
       if (storedClothe == null) {
         localStorage.setItem(clothe, 1);
       } else {
-        localStorage.setItem(clothe, localStorage.getItem(clothe) -0 + 1)
+        localStorage.setItem(clothe, localStorage.getItem(clothe) - 0 + 1)
       }
     }
 
